@@ -4,7 +4,8 @@ import java.util.Random;
 
 public class EmployeeWage {
 	static int full_Day_Wage = 160;
-
+	static int part_Time_Wage = 80;
+	
 	public static void main(String[] args) {
 		System.out.println("Welcome to Employeewage Computation Program");
 		Random rand = new Random();
