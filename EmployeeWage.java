@@ -3,16 +3,23 @@ package EmployeeWageBuilder;
 import java.util.Random;
 
 public class EmployeeWage {
-	static int full_Day_Wage;
-	static int part_Time_Wage;
-	static int working_Days=20;
-	int TotalWage;
-	int totalHours;
-	String companyName;
-		public void wageCalculation(String companyName,int full_Day_Wage,int part_Time_Wage) {
+	private final int full_Day_Wage;
+	private final int part_Time_Wage;
+	private final int working_Days;
+	private int TotalWage;
+	private int totalHours;
+	private final String companyName;
+		
+		public EmployeeWage(String companyName,int full_Day_Wage,int part_Time_Wage,int working_Days) {
+			this.companyName=companyName;
+			this.full_Day_Wage=full_Day_Wage;
+			this.part_Time_Wage=part_Time_Wage;
+			this.working_Days=working_Days;
+		}
+		public void wageCalculation() {
 			Random rand = new Random();
 			System.out.println("--------Employee wage For "+ companyName+ "--------");
-			for(int day=0; day<working_Days || totalHours<100; day++) {
+			for(int day=0; day<=working_Days && totalHours<100; day++) {
 			
 			int random = rand.nextInt(3);
 			if(random==0)
@@ -54,9 +61,9 @@ public class EmployeeWage {
 	
 		public static void main(String[] args) {
 		System.out.println("Welcome to Employeewage Computation Program");
-		EmployeeWage company1 = new EmployeeWage();
-		company1.wageCalculation("Wipro",160,20);
-		EmployeeWage company2 = new EmployeeWage();
-		company2.wageCalculation("TCS",170,35);
+		EmployeeWage Wipro = new EmployeeWage("Wipro",160,20,20);
+		Wipro.wageCalculation();
+		EmployeeWage TCS = new EmployeeWage("TCS",170,35,25);
+		TCS.wageCalculation();
 		}
 }
